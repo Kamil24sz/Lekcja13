@@ -103,10 +103,10 @@ namespace Projekt_kółko_krzyżyk
             //sprawdzenie czy ktoś wygrał
             bool wynik = SprawdzCzyKtosWygral();
 
-            if(wynik == true)
+            if (wynik == true)
             {
                 string tekstWygranej;
-                if(czyj_ruch == true)
+                if (czyj_ruch == true)
                 {
                     tekstWygranej = "Wygrał gracz X! Rozpocząć jeszcze raz?";
                 }
@@ -118,7 +118,7 @@ namespace Projekt_kółko_krzyżyk
                 //Poinformowanie gracza o rezultacie + pytanie o kontuacje gry
                 DialogResult odpowiedz = MessageBox.Show(tekstWygranej, "Wygrana", MessageBoxButtons.YesNo);
 
-                if(odpowiedz == DialogResult.No)
+                if (odpowiedz == DialogResult.No)
                 {
                     WylaczWszystkiePrzyciski();
                 }
@@ -126,6 +126,7 @@ namespace Projekt_kółko_krzyżyk
                 {
                     Resetuj();
                 }
+            } //UWAGA PROBLEM BYŁ W TYM MIEJSCU, NALEŻAŁO PRZESUNĄĆ TE KLAMRĘ ZAMYKAJĄCĄ z linii 139
                 czyj_ruch = !czyj_ruch;
                 if (czyj_ruch == true)
                 {
@@ -135,8 +136,8 @@ namespace Projekt_kółko_krzyżyk
                 {
                     lblCzyjRuch.Text = "O";
                 }
-            }
-
+            
+                //klamra była wcześniej w tym miejscu i wydłużała niepotrzebnie IF'a
         }
 
         //4.Funkcja kończąca, która wyłaćza wszystkie przyciski
